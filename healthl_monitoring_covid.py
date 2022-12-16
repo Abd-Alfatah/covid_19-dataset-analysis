@@ -238,7 +238,7 @@ for i in range(len(Y1)):
   expected=data['Result'][i]
   if prediction[0]>0.4:
         prediction[0]=1
-  elif prediction[0]>0.1 and prediction[0]<0.4:
+  elif prediction[0]>0.08 and prediction[0]<0.4:
       print("you are likely to have covid 19, you need to have a test!!")
   else:
     prediction[0]=0
