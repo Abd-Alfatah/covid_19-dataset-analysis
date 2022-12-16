@@ -233,12 +233,13 @@ false_negative=0
     prediction = backpropagation.predict(network, row)
     expected=backpropagation.getExpected(row, nOutputs)
 """
-print(Y1)
 for i in range(len(Y1)):
   prediction=Y1[i]
   expected=data['Result'][i]
-  if prediction[0]>0.15:
+  if prediction[0]>0.4:
         prediction[0]=1
+  elif prediction[0]>0.1 and prediction[0]<0.4:
+      print("you are likely to have covid 19, you need to have a test!!")
   else:
     prediction[0]=0
   if prediction==expected:
