@@ -7,7 +7,7 @@ import math
 import mpmath as mp 
 #we can import also mpmath for working with bigger values
 # the data used in this program can be found at this link
-
+#
 class dataCleaningandSplitting:
     """_summary_
     in this module we clean the data convert from string to float and fron integers to float
@@ -237,7 +237,7 @@ print(Y1)
 for i in range(len(Y1)):
   prediction=Y1[i]
   expected=data['Result'][i]
-  if prediction[0]>0.21:
+  if prediction[0]>0.15:
         prediction[0]=1
   else:
     prediction[0]=0
@@ -247,11 +247,10 @@ for i in range(len(Y1)):
     false_negative+=1
   elif prediction[0]==1 and expected==0:
     false_postive+=1
-  print(prediction,expected)
 accuracy=(correct)/(correct+false_negative+false_postive) *100
 print("the total number of correct case are: {}".format(correct),"\n")
 print("the number of false postive cases: {}, and the false negative cases: {},\n \
-while the accuracy is {}".format(false_postive, false_negative,accuracy))
+while the accuracy is {} %".format(false_postive, false_negative,accuracy))
 
 
 
