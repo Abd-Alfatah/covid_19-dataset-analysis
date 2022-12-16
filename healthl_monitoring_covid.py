@@ -229,6 +229,7 @@ accuracy=0
 correct=0
 false_postive=0
 false_negative=0
+most_likely=0
 """for row in dataCleaningandSplitting(data).testing_data():
     prediction = backpropagation.predict(network, row)
     expected=backpropagation.getExpected(row, nOutputs)
@@ -238,8 +239,8 @@ for i in range(len(Y1)):
   expected=data['Result'][i]
   if prediction[0]>0.4:
         prediction[0]=1
-  elif prediction[0]>0.08 and prediction[0]<0.4:
-      print("you are likely to have covid 19, you need to have a test!!")
+  elif prediction[0]>0.05 and prediction[0]<0.4:
+      most_likely+=1
   else:
     prediction[0]=0
   if prediction==expected:
@@ -250,8 +251,9 @@ for i in range(len(Y1)):
     false_postive+=1
 accuracy=(correct)/(correct+false_negative+false_postive) *100
 print("the total number of correct case are: {}".format(correct),"\n")
-print("the number of false postive cases: {}, and the false negative cases: {},\n \
-while the accuracy is {} %".format(false_postive, false_negative,accuracy))
+print("the number of false postive cases: {}, the false negative cases: {},\n and the total number of \
+    people that are most likely to have covif 19 and should do a test {} \n \
+while the accuracy is {} %".format(false_postive, false_negative,most_likely,accuracy))
 
 
 
